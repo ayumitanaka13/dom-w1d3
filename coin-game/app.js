@@ -35,12 +35,15 @@ const init = () => {
 
 const moveVertical = (element, amount) => {
     const currTop = extractPos(element.style.top);
-    element.style.top = `${currTop + amount}px`;
+    if (currTop + amount < window.innerHeight && currTop + amount > 0) {
+        element.style.top = `${currTop + amount}px`;
+    }
 }
-
 const moveHorizontal = (element, amount) => {
     const currLeft = extractPos(element.style.left);
-    element.style.left = `${currLeft + amount}px`;
+    if (currLeft + amount < window.innerWidth && currLeft + amount > 0) {
+        element.style.left = `${currLeft + amount}px`;
+    }
 }
 
 const extractPos = (position) => {

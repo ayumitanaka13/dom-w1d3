@@ -1,13 +1,12 @@
-function isTouching(a, b){
-    const aRect = a.getBoundingClientRect();
-    const bRect = b.getBoundingClientRect();
-
-    return !(
-        aRect.top + aRect.height < bRect.top ||
-        aRect.top > bRect.top + bRect.height ||
-        aRect.left + aRect.width < bRect.left ||
-        aRect.left > bRect.left + bRect.width
-    )
+function isTouching(a, b) {
+	const aRect = a.getBoundingClientRect();
+	const bRect = b.getBoundingClientRect();
+	return !(
+		aRect.top + aRect.height < bRect.top ||
+		aRect.top > bRect.top + bRect.height ||
+		aRect.left + aRect.width < bRect.left ||
+		aRect.left > bRect.left + bRect.width
+	);
 }
 
 const init = () => {
@@ -34,6 +33,7 @@ const init = () => {
     window.addEventListener('keyup', function(e){
         if(e.key === 'ArrowLeft' || e.key === 'Left'){
             moveHorizontal(avatar, -50);
+            avatar.style.transform = 'scale(-1, 1)'; 
         }
 
         if(isTouching(avatar,coin)) moveCoin();
@@ -41,6 +41,7 @@ const init = () => {
     window.addEventListener('keyup', function(e){
         if(e.key === 'ArrowRight' || e.key === 'Right'){
             moveHorizontal(avatar, 50);
+            avatar.style.transform = 'scale(1, 1)'; 
         }
 
         if(isTouching(avatar,coin)) moveCoin();
@@ -63,10 +64,10 @@ const extractPos = (position) => {
 }
 
 const moveCoin = () => {
+    const y = Math.floor(Math.random() * window.innerHeight);
     const x = Math.floor(Math.random() * window.innerWidth);
-    const y = Math.floor(Math.random() * window.innerWidth);
-    coin.style.top = `${x}px`;
-    coin.style.left = `${y}px`;
+    coin.style.top = `${y}px`;
+    coin.style.left = `${x}px`;
 }
 
 init();

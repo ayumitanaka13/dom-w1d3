@@ -19,30 +19,15 @@ const init = () => {
     window.addEventListener('keyup', function(e){
         if(e.key === 'ArrowDown' || e.key === 'Down'){
             moveVertical(avatar, 50);
-        }
-
-        if(isTouching(avatar,coin)) moveCoin();
-    });
-    window.addEventListener('keyup', function(e){
-        if(e.key === 'ArrowUp' || e.key === 'Up'){
+        } else if(e.key === 'ArrowUp' || e.key === 'Up'){
             moveVertical(avatar, -50);
-        }
-
-        if(isTouching(avatar,coin)) moveCoin();
-    });
-    window.addEventListener('keyup', function(e){
-        if(e.key === 'ArrowLeft' || e.key === 'Left'){
+        } else if(e.key === 'ArrowLeft' || e.key === 'Left'){
             moveHorizontal(avatar, -50);
             avatar.style.transform = 'scale(-1, 1)'; 
-        }
-
-        if(isTouching(avatar,coin)) moveCoin();
-    });
-    window.addEventListener('keyup', function(e){
-        if(e.key === 'ArrowRight' || e.key === 'Right'){
+        } else if(e.key === 'ArrowRight' || e.key === 'Right'){
             moveHorizontal(avatar, 50);
             avatar.style.transform = 'scale(1, 1)'; 
-        }
+        } else return;
 
         if(isTouching(avatar,coin)) moveCoin();
     });

@@ -39,6 +39,7 @@ const moveVertical = (element, amount) => {
         element.style.top = `${currTop + amount}px`;
     }
 }
+
 const moveHorizontal = (element, amount) => {
     const currLeft = extractPos(element.style.left);
     if (currLeft + amount < window.innerWidth -100 && currLeft + amount > 0) {

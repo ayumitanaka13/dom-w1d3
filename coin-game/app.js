@@ -11,7 +11,7 @@ function isTouching(a, b) {
 
 const init = () => {
     //get the avatar
-    const avatar = document.querySelector("#avater");
+    const avatar = document.querySelector("#avatar");
     //get the coin
     const coin = document.querySelector("#coin");
 
@@ -53,8 +53,8 @@ const extractPos = (position) => {
 }
 
 const moveCoin = () => {
-    const y = Math.floor(Math.random() * window.innerHeight);
-    const x = Math.floor(Math.random() * window.innerWidth);
+    const y = Math.floor(Math.random() * (window.innerHeight -100));
+    const x = Math.floor(Math.random() * (window.innerWidth -100));
     coin.style.top = `${y}px`;
     coin.style.left = `${x}px`;
 }
